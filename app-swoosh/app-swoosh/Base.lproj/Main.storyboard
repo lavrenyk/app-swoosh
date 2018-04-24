@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WelcomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeVC" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,6 +55,9 @@
                                 <state key="normal" title="GET STARTED">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="lAu-H0-Rcq" kind="show" id="OaY-KQ-wtx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--LeagueVC-->
         <scene sceneID="2cX-KQ-Vav">
             <objects>
-                <viewController id="lAu-H0-Rcq" sceneMemberID="viewController">
+                <viewController id="lAu-H0-Rcq" customClass="LeagueVC" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AAo-Ms-fF0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,6 +160,20 @@
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextTapped:" destination="lAu-H0-Rcq" eventType="touchUpInside" id="YDo-Aa-FqP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlS-HI-YRi">
+                                <rect key="frame" x="20" y="25" width="30" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="5b9-WQ-2xP"/>
+                                    <constraint firstAttribute="width" constant="30" id="W24-h4-jEz"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <segue destination="Xue-MS-eAd" kind="unwind" unwindAction="unwindFromSkillVCWithUnwindSegue:" id="ThG-OH-OXz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -164,6 +181,7 @@
                             <constraint firstItem="VDO-9s-ple" firstAttribute="bottom" secondItem="fIk-UB-7v8" secondAttribute="bottom" id="0CN-iT-TIF"/>
                             <constraint firstItem="fIk-UB-7v8" firstAttribute="trailing" secondItem="oBd-5s-Qfj" secondAttribute="trailing" constant="20" id="2z9-0P-RxU"/>
                             <constraint firstItem="xeb-Qq-2zw" firstAttribute="leading" secondItem="fIk-UB-7v8" secondAttribute="leading" id="A4R-EH-BiY"/>
+                            <constraint firstItem="rlS-HI-YRi" firstAttribute="leading" secondItem="fIk-UB-7v8" secondAttribute="leading" constant="20" id="BAz-rL-gOi"/>
                             <constraint firstItem="fIk-UB-7v8" firstAttribute="trailing" secondItem="tdn-oe-1q5" secondAttribute="trailing" constant="20" id="CV0-C1-FkC"/>
                             <constraint firstItem="xeb-Qq-2zw" firstAttribute="top" secondItem="fIk-UB-7v8" secondAttribute="top" constant="10" id="FzX-zj-2b8"/>
                             <constraint firstItem="fIk-UB-7v8" firstAttribute="bottom" secondItem="tdn-oe-1q5" secondAttribute="bottom" constant="25" id="KY5-RK-kUb"/>
@@ -171,6 +189,7 @@
                             <constraint firstItem="VDO-9s-ple" firstAttribute="leading" secondItem="fIk-UB-7v8" secondAttribute="leading" id="eRz-J5-QhC"/>
                             <constraint firstItem="xeb-Qq-2zw" firstAttribute="top" secondItem="fIk-UB-7v8" secondAttribute="top" constant="10" id="ga7-qH-fn4"/>
                             <constraint firstItem="tdn-oe-1q5" firstAttribute="leading" secondItem="fIk-UB-7v8" secondAttribute="leading" constant="20" id="h6f-N6-RyI"/>
+                            <constraint firstItem="rlS-HI-YRi" firstAttribute="top" secondItem="AAo-Ms-fF0" secondAttribute="top" constant="25" id="kwq-Ob-zUy"/>
                             <constraint firstItem="VDO-9s-ple" firstAttribute="top" secondItem="AAo-Ms-fF0" secondAttribute="top" id="o9J-XU-aPk"/>
                             <constraint firstItem="VDO-9s-ple" firstAttribute="trailing" secondItem="fIk-UB-7v8" secondAttribute="trailing" id="tgv-0u-8xn"/>
                             <constraint firstItem="oBd-5s-Qfj" firstAttribute="leading" secondItem="fIk-UB-7v8" secondAttribute="leading" constant="20" id="vwh-0J-RhU"/>
@@ -178,15 +197,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fIk-UB-7v8"/>
                     </view>
+                    <connections>
+                        <segue destination="9bQ-XE-jhv" kind="show" identifier="skillVCSegue" id="1G2-ZI-d7d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnS-Cc-y0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Xue-MS-eAd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--SkillVC-->
         <scene sceneID="cRn-Xk-sHd">
             <objects>
-                <viewController id="9bQ-XE-jhv" sceneMemberID="viewController">
+                <viewController id="9bQ-XE-jhv" customClass="SkillVC" customModule="app_swoosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hvh-kX-AEr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,6 +296,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="29" height="24"/>
         <image name="beginnerBallerBG" width="414" height="736"/>
         <image name="desiredLeagueBG" width="414" height="736"/>
         <image name="swooshLogo" width="119" height="20"/>
